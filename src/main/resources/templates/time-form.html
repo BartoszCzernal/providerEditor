@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+
+<title>Save</title>
+
+</head>
+<body>
+
+	<div class="container">
+
+		<h3>Provider Editor</h3>
+		<hr>
+
+		<p class="h4 mb-4">Save</p>
+
+		<div>
+			<form action="#" th:action="@{/saveTime}" th:object="${date}"
+				method="POST">
+
+				<input type="hidden" th:field="*{day}">
+				<input type="text" th:field="*{time}"
+					class="form-control mb-4 col-4" placeholder="Time">
+				<span th:if="${#fields.hasErrors('time')}" th:errors="*{time}"></span>
+
+				<button type="submit" class="btn btn-info col-2 mb-4 d-block">Save</button>
+
+			</form>
+		</div>
+
+		<a th:href="@{/list/{day}(day=${day})}"
+			class="btn btn-outline-primary"> Back </a>
+
+
+	</div>
+
+</body>
+
+</html>

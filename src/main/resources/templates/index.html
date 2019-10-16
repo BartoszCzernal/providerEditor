@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+	<title>Provider Editor</title>
+
+</head>
+<body>
+
+	<div class="container" >
+	
+		<h3 class="d-inline">Provider Editor</h3>
+		<a th:href="@{/showFormForAddCode}" class="btn btn-primary d-inline mx-4">Add code</a>
+		<div th:if="${providerAdded != null}">
+		CODE : <span th:text="${#objects.nullSafe(providerAdded?.code,'')}" ></span>
+		NAME: <span th:text="${#objects.nullSafe(providerAdded?.name,'')}" ></span>
+		has been added.
+		</div>
+		<hr>
+		<a th:href="@{/list/monday}" class="btn btn-outline-primary"> Monday </a>
+		<a th:href="@{/list/tuesday}" class="btn btn-outline-primary"> Tuesday </a>
+		<a th:href="@{/list/wednesday}" class="btn btn-outline-primary"> Wednesday </a>
+		<a th:href="@{/list/thursday}" class="btn btn-outline-primary"> Thursday </a>
+		<a th:href="@{/list/friday}" class="btn btn-outline-primary"> Friday </a>
+		<a th:href="@{/list/saturday}" class="btn btn-outline-primary"> Saturday </a>
+		<a th:href="@{/list/sunday}" class="btn btn-outline-primary"> Sunday </a>		
+	
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/listStyle.css}" />
+
+
+<title>Provider Editor</title>
+
+</head>
+
+<body>
+	<div class="container">
+		<h3>Provider Editor</h3>
+		<a th:href="@{/}" class="btn btn-outline-primary"> Back </a>
+		<hr>
+		<h3 th:text="${day}" id="day"></h3>
+		<div th:each="provider : ${providerChanged}">
+		CODE : <span th:text="${provider.code}" ></span>
+		NAME : <span th:text="${provider.name}" ></span>
+		has been added to <span th:text="${day}"></span>
+		on <span th:text="${timeChanged}"></span>
+		</div>
+		<a th:href="@{/showFormForAddTime/{day}(day=${day})}" 
+			class="btn btn-primary">Add time</a>
+		<table class="table table-bordered table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>Action</th>
+					<th>Time</th>
+					<th:block th:each="header : ${headers}">
+						<th colspan="2" th:text="${header}" />
+					</th:block>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="date : ${dates}">
+					<td> 
+						<a th:href="@{/showFormForUpdate(dateId=${date.id}, day=${day})}" 
+						class="btn btn-info btn-sm"> Update</a>
+						<a th:href="@{/delete(dateId=${date.id}, day=${day})}" 
+						class="btn btn-danger btn-sm"
+						onclick="if (!(confirm('Are you sure you want to delete this?'))) return false"> Delete</a>
+						
+					</td>
+					<td th:text="${date.time}" />
+					<th:block th:each="provider : ${date.getProviders()}">
+						<td th:text="${provider.name}" />
+						<td th:text="${provider.code}" />
+					</th:block>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+	<script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript" th:src="@{/js/date-form-js.js}"></script>
+
+
+
+<title>Save</title>
+
+</head>
+<body>
+
+	<div class="container">
+
+		<h3>Provider Editor</h3>
+		<hr>
+
+		<p class="h4 mb-4">Save</p>
+
+		<div>
+			<form action="#" th:action="@{/save}" th:object="${date}"
+				method="POST">
+
+				<input type="hidden" th:field="*{day}"> 
+				<input type="hidden"
+					th:field="*{id}" /> 
+				<input type="text" th:field="*{time}"
+					class="form-control mb-4 col-4" placeholder="Time" readonly="readonly">
+
+
+				<th:block th:each="provider, providerStat : *{providers}">
+
+					<select th:field="*{providers[__${providerStat.index}__].code}" 
+					class="form-control mb-4 col-4 d-inline">
+					<option value=""></option>
+						<th:block th:each="providerOption : ${allProviders}">
+							<option th:value="${providerOption.code}" th:text="${providerOption.code}"></option>
+						</th:block>
+					</select>
+					<input type="text" th:field="*{providers[__${providerStat.index}__].name}"
+						class="form-control mb-4 col-4 d-inline" placeholder="name" readonly="readonly">
+
+				</th:block>
+
+				<button type="submit" class="btn btn-info col-2 mb-4 d-block">Save</button>
+
+			</form>
+		</div>
+
+		<a th:href="@{/list/{day}(day=${day})}"
+			class="btn btn-outline-primary"> Back </a>
+
+
+	</div>
+	
+</body>
+
+</html>
