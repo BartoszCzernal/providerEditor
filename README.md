@@ -2,13 +2,10 @@
 > Application that allows you track and modify supplier's arrival dates to company.
 
 ## Table of contents
-* [General info](#general-info)
 * [Screenshots](#screenshots)
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Status](#status)
-
-## General info
 
 
 ## Screenshots
