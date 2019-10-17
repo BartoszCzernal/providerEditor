@@ -14,8 +14,9 @@
 ## Screenshots
 ![Example screenshot](./img/screenshot.png)
 
-
 ![Example screenshot](./img/screenshot2.png)
+
+![Example screenshot](./img/screenshot3.png)
 
 ## Technologies
 * Java - version 1.8
