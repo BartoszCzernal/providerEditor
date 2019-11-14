@@ -29,8 +29,9 @@
 
 ## Setup
 1. Download ProviderEditor.jar
-2. Run it
-3. Go to your browser and type: http://localhost:8080
+2. Load DB in MySQL(scripts are in this repo). You can find URL, user and password in properties file.
+3. Run ProviderEditor.jar
+4. Go to your browser and type: http://localhost:8080
 
 ## Status
 Project is in progress.
